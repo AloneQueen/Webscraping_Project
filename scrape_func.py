@@ -19,3 +19,5 @@ def craigslist_scrape(url='https://stlouis.craigslist.org/search/msa'):
     #sel = Selector(text=html)
 
     return html
+
+    browser.quit()

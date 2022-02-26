@@ -10,7 +10,7 @@ app = Flask(__name__)
 #decorator
 @app.route("/")
 def echo_hello():
-    return "Webscraping Craigslist with Python"
+    return render_template('intro.html')
     #add more info about how to use 
 
 @app.route("/scrape")
@@ -18,7 +18,7 @@ def scrape():
 
     func_output = craigslist_scrape()
 
-    return render_template('index.html',html_page_text=func_output)
+    return render_template('index.html', data=func_output)
 
 # @app.route("/scrape/all")
 # def all():
@@ -36,5 +36,6 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
+## GitBash
 ## export FLASK_APP=scrape_app
 ## flask run
