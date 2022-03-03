@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Webscraping Craigslist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      nav a {
+          color: #d64161;
+          font-size: 3em;
+          margin-left: 50px;
+          text-decoration: none;
+      }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <div class="jumbotron text-center">
       <!-- Render our data -->
-      <p>Webscraping Craigslist with Python</p>
+      <p>Project: Webscraping Craigslist with Python</p>
       <p>Available endpoints:</p>
-      <p><b>/scrape</b> returns all html from the page.</p>
+      <p><b>/scrape</b> returns url of scraped web page.</p>
       <p><b>/scrape/all</b> returns scraped data from top 50 items per page.</p>
     </div>
   </div>
