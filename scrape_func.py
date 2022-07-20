@@ -6,7 +6,7 @@ from scrapy import Selector
 import re
 import pandas as pd
 
-def craigslist_scrape(url='https://stlouis.craigslist.org/search/msa'):
+def craigslist_scrape(url='https://apod.nasa.gov/apod/archivepix.html'):
     #create pathway and browser
     executable_path = {'executable_path':ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=True)
@@ -24,21 +24,12 @@ def craigslist_scrape(url='https://stlouis.craigslist.org/search/msa'):
         #limit results to first 50
         if i < 51:
             try:
-                link = result.xpath('./a/@href').get()
-                date = result.xpath('./div/time/@datetime').get()
-                listing_no = result.xpath('./div/h3/a/@data-id').get()
-                title = result.xpath('./div/h3/a/text()').get()
-                price = result.xpath('./div/span[@class="result-meta"]/span[@class="result-price"]/text()').get()
-                location = result.xpath('./div/span[@class="result-meta"]/span[@class="result-hood"]/text()').get()
-                #convert location to string without parentheses and extra spaces
-                regex_location = re.findall(r'\((.*)\s\s', location)
-                #append above info to a diction 
-                craigslist_dict = {'title':title,
-                                   'listing_date':date,
-                                   'listing_number':listing_no, 
-                                   'price':price,
-                                   'location':regex_location[0], 
-                                   'listing_url':link}
+                link = result.xpath('./b/a/@href').get()
+                date = result.xpath('./b/@data-id').get()
+                description = result.xpath('./b/a/@data-id').get()
+                craigslist_dict = {'description':description,
+                                   'date':date,
+                                   'url':link}
                 #append dictionary to list
                 craigslist_data.append(craigslist_dict)
             except Exception as e:
