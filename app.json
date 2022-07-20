@@ -1,0 +1,21 @@
+{
+    "name":"Nasa-API",
+    "description":"Unofficial API for Nasa Photos",
+    "keywords":[
+        "quotes",
+        "flask"
+    ],
+    "repository":"https://github.com/AloneQueen/Webscraping_Project",
+    "success_url":"/",
+    "buildpacks":[
+        {
+            "url":"heroku/python"
+        }
+    ],
+    "formation":{
+        "web":{
+            "quantity":1,
+            "size":"free"
+        }
+    }
+}
